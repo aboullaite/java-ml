@@ -1,0 +1,2 @@
+[ERROR] 2023-09-24 10:21:52.390 [main] DeepNetts - java.io.FileNotFoundException: src/main/resources/dataset/index.txt (No such file or directory)
+[ERROR] 2023-09-24 10:22:33.879 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!
