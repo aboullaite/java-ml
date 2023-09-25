@@ -1,4 +1,4 @@
-package org.example.nl4j;
+package org.example.dl4j;
 
 import java.io.File;
 import java.io.IOException;
