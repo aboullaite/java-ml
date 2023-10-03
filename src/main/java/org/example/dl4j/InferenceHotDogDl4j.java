@@ -15,7 +15,7 @@ public class InferenceHotDogDl4j {
 
   public static void main(String[] args)
       throws IOException, InterruptedException {
-    HotDogOrNotDl4j.training();
-//    HotDogOrNotResnet50Dl4j.transferLearningResnet50();
+//    HotDogOrNotDl4j.training();
+    HotDogOrNotResnet50Dl4j.transferLearningResnet50();
   }
 }

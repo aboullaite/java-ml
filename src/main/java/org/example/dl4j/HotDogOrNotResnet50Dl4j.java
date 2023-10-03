@@ -108,17 +108,16 @@ public class HotDogOrNotResnet50Dl4j {
     resnet50Transfer.setListeners(new ScoreIterationListener(50), new StatsListener(storage));
     double lowest = 10;
 
-    for (int i = 1; i < 50 + 1; i++) {
+    for (int i = 1; i < 3 + 1; i++) {
       trainIter.reset();
       resnet50Transfer.fit(trainIter);
       if (resnet50Transfer.score() < lowest) {
         lowest = resnet50Transfer.score();
         String modelFilename = new File(".").getAbsolutePath() + "/CatsDogsClassifier_loss" + lowest + "_ep" + i + "ResNet50.zip";
-//                ModelSerializer.writeModel(resnet50Transfer, modelFilename, false);
+        ModelSerializer.writeModel(resnet50Transfer, modelFilename, false);
       }
       LOGGER.info("Completed epoch {}", i);
-//        System.out.println(NetworkUtils.getLearningRate(resnet50Transfer, "output"));
-//            System.out.println(String.format("%d,%.2f", i, tunedModel.evaluate(trainIterator).accuracy()));
+
     }
     ModelSerializer.writeModel(resnet50Transfer, "Final_ResNet50_v2.zip", false);
     Evaluation trainEval = resnet50Transfer.evaluate(trainIter);

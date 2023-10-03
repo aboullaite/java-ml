@@ -17,18 +17,17 @@ public class InferenceHotdogVisRec {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(HotDogOrNotDl4j.class);
 
-
   public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-     HotDogOrNotVisRec.train();
-     /**
+//     HotDogOrNotVisRec.train();
+
     // load a trained model/neural network
     ConvolutionalNetwork convNet =  FileIO.createFromFile("hotdog.dnet", ConvolutionalNetwork.class);
     // create an image classifier using trained model
     ImageClassifier<BufferedImage> classifier = new ImageClassifierNetwork(convNet);
 
     // load image to classify
-    BufferedImage image = ImageIO.read(new File("src/main/resources/dataset/train/hotdog/7.jpg"));
+    BufferedImage image = ImageIO.read(new File("src/main/resources/visrec/hotdog.jpg"));
     // feed image into a classifier to recognize it
     Map<String, Float> results = classifier.classify(image);
 
@@ -39,6 +38,6 @@ public class InferenceHotdogVisRec {
     } else {
       LOGGER.info("Most likely this is not a hot dog");
     }
-      **/
+
   }
 }

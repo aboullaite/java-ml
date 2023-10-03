@@ -25,6 +25,7 @@ import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
 import org.deeplearning4j.ui.api.UIServer;
 import org.deeplearning4j.ui.model.stats.StatsListener;
 import org.deeplearning4j.ui.model.storage.InMemoryStatsStorage;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
@@ -38,8 +39,8 @@ import org.slf4j.LoggerFactory;
 public class HotDogOrNotDl4j {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(HotDogOrNotDl4j.class);
-  private static int height = 100;
-  private static int width = 100;
+  private static int height = 128;
+  private static int width = 128;
   private static int channels = 3;
   private static int numLabels = 2;
   private static int batchSize = 50;
@@ -47,7 +48,7 @@ public class HotDogOrNotDl4j {
   private static final String TRAINING_DATASET = "src/main/resources/dataset/train";
   private static final String TESTING_DATASET = "src/main/resources/dataset/test";
   private static Random rng = new Random(seed);
-  private static int epochs = 2;
+  private static int epochs = 100;
 
   public static void training() throws IOException {
 
@@ -164,7 +165,7 @@ public class HotDogOrNotDl4j {
 
 
       LOGGER.info("***** SAVING MODEL *****");
-//      ModelSerializer.writeModel(network,  "hotdog.bin", true);
+      ModelSerializer.writeModel(network,  "hotdog.bin", true);
 
     LOGGER.info("**************** HotDog Classification finished ********************");
   }
